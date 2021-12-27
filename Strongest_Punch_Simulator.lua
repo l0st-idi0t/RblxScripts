@@ -23,7 +23,7 @@ local world_args = {
 local indicator = Instance.new("TextLabel", plr.PlayerGui.ScreenGui)
 indicator.Position = UDim2.new(0.05, 0, 0.8, 0)
 indicator.Size = UDim2.new(0.1, 0, 0.1, 0)
-indicator.Text = "Autofarm["..key.."] - "..tostring(toggle)
+indicator.Text = "Autofarm["..UIS:GetStringForKeyCode(key).."] - "..tostring(toggle)
 indicator.Name = "yeetus"
 indicator.TextScaled = true
 
@@ -33,7 +33,7 @@ UIS.InputBegan:Connect(function(input, processed)
 
   if input.KeyCode == key then
     toggle = not toggle
-    indicator.Text = "Autofarm["..key.."] - "..tostring(toggle)
+    indicator.Text = "Autofarm["..UIS:GetStringForKeyCode(key).."] - "..tostring(toggle)
 
     if toggle then
       while toggle do
