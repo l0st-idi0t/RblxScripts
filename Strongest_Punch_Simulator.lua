@@ -5,6 +5,7 @@ local VI = game:GetService("VirtualInputManager")
 local UIS = game:GetService("UserInputService")
 local mouse = plr:GetMouse()
 local toggle = false
+local key = Enum.KeyCode.F --autofarm keybind set to F
 local remote = game:GetService("ReplicatedStorage").RemoteEvent
 local pet_args = {
 	[1] = {
@@ -22,7 +23,7 @@ local world_args = {
 local indicator = Instance.new("TextLabel", plr.PlayerGui.ScreenGui)
 indicator.Position = UDim2.new(0.05, 0, 0.8, 0)
 indicator.Size = UDim2.new(0.1, 0, 0.1, 0)
-indicator.Text = "Autofarm[F] - "..tostring(toggle)
+indicator.Text = "Autofarm["..key.."] - "..tostring(toggle)
 indicator.Name = "yeetus"
 indicator.TextScaled = true
 
@@ -30,9 +31,10 @@ indicator.TextScaled = true
 UIS.InputBegan:Connect(function(input, processed)
   if processed then return end
 
-  if input.KeyCode == Enum.KeyCode.F then
+  if input.KeyCode == key then
     toggle = not toggle
-    
+    indicator.Text = "Autofarm["..key.."] - "..tostring(toggle)
+
     if toggle then
       while toggle do
         local num = plr.leaderstats.WORLD.Value
