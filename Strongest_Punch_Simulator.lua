@@ -35,21 +35,19 @@ UIS.InputBegan:Connect(function(input, processed)
     toggle = not toggle
     indicator.Text = "Autofarm["..UIS:GetStringForKeyCode(key).."] - "..tostring(toggle)
 
-    if toggle then
-      while toggle do
-        local num = plr.leaderstats.WORLD.Value
-        local stage = workspace.Map.Stages.Boosts[num]:GetChildren()
-        for i, v in pairs(stage) do
-          if toggle then
-          	remote:FireServer(unpack(pet_args))
-          	remote:FireServer(unpack(world_args))
-          	VI:SendMouseButtonEvent(mouse.X, mouse.Y, 0, true, game, 1)
-          	wait(0.5)
-          	for j, w in pairs(v:GetChildren()) do
-                w.CFrame = HRP.CFrame
-            end
-          end
-        end
+    while toggle do
+      local num = plr.leaderstats.WORLD.Value
+      local stage = workspace.Map.Stages.Boosts[num]:GetChildren()
+      for i, v in pairs(stage) do
+        if toggle then
+          remote:FireServer(unpack(pet_args))
+	  remote:FireServer(unpack(world_args))
+	  VI:SendMouseButtonEvent(mouse.X, mouse.Y, 0, true, game, 1)
+	  wait(0.5)
+          for j, w in pairs(v:GetChildren()) do
+	    w.CFrame = HRP.CFrame
+	  end
+	end
       end
     end
   end
