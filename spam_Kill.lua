@@ -6,7 +6,9 @@ local plr = game.Players
 local target = "Reading_isfun123"
 
 local function punch(name)
-  remote:FireServer(plr[name])
+	for i = 1, 100 do
+  		remote:FireServer(plr[name])
+	end
 end
 
 UIS.InputBegan:Connect(function(key, processed)
