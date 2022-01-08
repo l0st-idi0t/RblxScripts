@@ -13,7 +13,7 @@ UIS.InputBegan:Connect(function(key, processed)
 	if processed then return end
 	
 	if key.KeyCode == Enum.KeyCode.F then
-		toggle = not toggle 
+		toggle = not toggle
 		
 		while toggle do
 			wait(0.1)
