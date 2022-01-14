@@ -42,7 +42,7 @@ UIS.InputBegan:Connect(function(input, processed)
           remote:FireServer(unpack(pet_args))
 	  remote:FireServer(unpack(world_args))
 	  VI:SendMouseButtonEvent(500, 500, 0, true, game, 1)
-	  wait(0.5)
+	  wait(0.4)
           for j, w in pairs(v:GetChildren()) do
 	    w.CFrame = HRP.CFrame
 	  end
