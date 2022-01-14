@@ -3,7 +3,6 @@ local plr = game.Players.LocalPlayer
 local HRP = plr.Character.HumanoidRootPart
 local VI = game:GetService("VirtualInputManager")
 local UIS = game:GetService("UserInputService")
-local mouse = plr:GetMouse()
 local toggle = false
 local key = Enum.KeyCode.F --autofarm keybind set to F
 local remote = game:GetService("ReplicatedStorage").RemoteEvent
@@ -42,7 +41,7 @@ UIS.InputBegan:Connect(function(input, processed)
         if toggle then
           remote:FireServer(unpack(pet_args))
 	  remote:FireServer(unpack(world_args))
-	  VI:SendMouseButtonEvent(mouse.X, mouse.Y, 0, true, game, 1)
+	  VI:SendMouseButtonEvent(500, 500, 0, true, game, 1)
 	  wait(0.5)
           for j, w in pairs(v:GetChildren()) do
 	    w.CFrame = HRP.CFrame
